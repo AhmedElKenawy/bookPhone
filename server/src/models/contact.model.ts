@@ -21,8 +21,9 @@ export class Contact extends Entity {
   @property({
     type: 'string',
     required: true,
+
     jsonSchema: {
-      uniqueItems: [true, ' Must Be Unique'],
+      unique: [true, ' Must Be Unique'],
     },
   })
   phoneNumber: string;
