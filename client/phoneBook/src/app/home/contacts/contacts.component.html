@@ -1,0 +1,28 @@
+<div class="contacts ">
+  <div class="contacts__head">
+    <h2>
+      <svg class="svg svg-head">
+        <use xlink:href="assets/svg/allSvg.svg#icon-board"></use>
+      </svg>
+      Contacts
+    </h2>
+  </div>
+  <div class="contacts__list">
+    <ul *ngFor="let contact of Contacts">
+      <li (click)="openContact(contact.id)">
+        <p>
+          Name
+
+          <span> {{ contact.name }} </span>
+        </p>
+
+        <P
+          >Phone Number
+          <span>
+            {{ contact.phoneNumber }}
+          </span>
+        </P>
+      </li>
+    </ul>
+  </div>
+</div>

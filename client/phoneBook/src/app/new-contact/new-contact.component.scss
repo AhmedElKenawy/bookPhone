@@ -1,0 +1,20 @@
+.newContact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 2em;
+
+  &__form {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    button {
+      width: 30%;
+      justify-content: center;
+      margin: 2em auto;
+    }
+  }
+}

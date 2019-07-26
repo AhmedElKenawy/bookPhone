@@ -1,0 +1,43 @@
+<div class="newContact">
+  <h2>
+    New Contact
+  </h2>
+
+  <form class="newContact__form" (ngSubmit)="newContact(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        placeholder=""
+        name="name"
+        ngModel
+        #name="ngModel"
+        required
+      />
+      <div class="alert alert-danger" role="alert" *ngIf="NameLessThan3Chr">
+        Name Must Be over 2 character
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Phone Number</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput2"
+        placeholder=""
+        name="phoneNumber"
+        ngModel
+        required
+      />
+
+      <div class="alert alert-danger" role="alert" *ngIf="phoneNotUnique">
+        This Phone Number is already Exist
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary " [disabled]="!f.valid">
+      ADD
+    </button>
+  </form>
+</div>

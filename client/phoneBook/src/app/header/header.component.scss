@@ -1,0 +1,30 @@
+.app-header {
+  height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #8c1f1f;
+  h1 {
+    color: #fff;
+  }
+}
+
+nav {
+  ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    li {
+      margin-left: 12px;
+      a {
+        color: #fff;
+        svg {
+          height: 20px;
+          width: 20px;
+          fill: #fff;
+        }
+      }
+    }
+  }
+}

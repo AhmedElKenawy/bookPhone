@@ -1,0 +1,72 @@
+<div class="contact">
+  <div class="contact__head">
+    <h2>
+      Contact details
+    </h2>
+  </div>
+  <div class="contact__details" *ngIf="!editMode">
+    <div class="contact__details-filed">
+      <h3>
+        Name
+      </h3>
+      <P>{{ user?.name }}</P>
+    </div>
+    <div class="contact__details-filed">
+      <h3>
+        Phone
+      </h3>
+      <P>{{ user?.phoneNumber }}</P>
+    </div>
+  </div>
+
+  <div class="contact__edit" *ngIf="editMode">
+    <h3>
+      Update Contact
+    </h3>
+    <form class="contact__edit--form" (ngSubmit)="updateContact(f)" #f="ngForm">
+      <div class="form-group d-flex">
+        <label for="formGroupExampleInput">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="formGroupExampleInput"
+          placeholder=""
+          name="name"
+          [ngModel]="user.name"
+          required
+        />
+        <div class="alert alert-danger" role="alert" *ngIf="NameLessThan3Chr">
+          Name Must Be over 2 character
+        </div>
+      </div>
+      <div class="form-group d-flex">
+        <label for="formGroupExampleInput2">Phone Number</label>
+        <input
+          type="text"
+          class="form-control"
+          id="formGroupExampleInput2"
+          placeholder=""
+          name="phoneNumber"
+          [ngModel]="user.phoneNumber"
+          required
+        />
+        <div class="alert alert-danger" role="alert" *ngIf="phoneNotUnique">
+          This Phone Number is already Exist
+        </div>
+      </div>
+      <div class="buttonGroup">
+        <button type="submit" class="btn btn-primary Cbtn ">Update</button>
+        <button type="button" class="btn btn-danger Cbtn  " (click)="cancel()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="contactOption">
+  <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
+  <button type="button" class="btn btn-danger" (click)="onDelete()">
+    Delete
+  </button>
+</div>
