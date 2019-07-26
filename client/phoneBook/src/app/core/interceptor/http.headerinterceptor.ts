@@ -12,15 +12,14 @@ import { Observable } from "rxjs";
   providedIn: "root"
 })
 /**
- * inercept the request and add header
- * add the token as a header
+ * inercept the request and add header and Token
+ *
  */
 export class HeaderInterceptor implements HttpInterceptor {
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem("token");
     const httpHeader = {
       "Content-Type": "application/json"
     };
