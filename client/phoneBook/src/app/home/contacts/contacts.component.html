@@ -8,9 +8,10 @@
     </h2>
   </div>
   <div class="contacts__list">
-    <ul *ngFor="let contact of Contacts">
+    <ul *ngFor="let contact of Contacts; let i = index">
       <li (click)="openContact(contact.id)">
         <p>
+          {{ i + 1 }}
           Name
 
           <span> {{ contact.name }} </span>
@@ -25,4 +26,15 @@
       </li>
     </ul>
   </div>
+  <h3>Table</h3>
+  <table style="width:100%">
+    <tr>
+      <td>Name</td>
+      <td>Phone Number</td>
+    </tr>
+    <tr *ngFor="let v of Contacts">
+      <td>{{ v.name }}</td>
+      <td>{{ v.phoneNumber }}</td>
+    </tr>
+  </table>
 </div>

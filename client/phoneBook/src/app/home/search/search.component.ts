@@ -17,11 +17,16 @@ export class SearchComponent implements OnInit {
 
   search(form: NgForm) {
     this.NoContact = false;
-    console.log(form.value.searchValue);
-    this.result = this.contactService.searchByName(form.value.searchValue);
-    if (this.result.length == 0) {
-      this.NoContact = true;
-    }
+
+    const searchValue = form.value.searchValue;
+
+    this.contactService.search(searchValue).subscribe(res => {
+      this.result = res;
+      if (this.result.length == 0) {
+        this.NoContact = true;
+      }
+    });
+
     this.backHome = true;
   }
 
