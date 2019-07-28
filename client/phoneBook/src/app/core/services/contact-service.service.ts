@@ -66,7 +66,7 @@ export class ContactServiceService {
 
   search(searchValue) {
     //filter
-    const url_path = `contacts?filter[where][name]=${searchValue}&filter[limit]=10`;
+    const url_path = `contacts?filter[where][name][like]=${searchValue}&filter[limit]=10`;
     return this.api.get(url_path);
   }
 }
